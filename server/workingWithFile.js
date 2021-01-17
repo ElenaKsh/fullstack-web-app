@@ -67,7 +67,7 @@ function deleteProduct(id) {
   })
 );*/
 
-//console.log(deleteProduct(3));
+console.log(deleteProduct(3));
 
 console.log(getAllProducts());
 
