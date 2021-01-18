@@ -1,24 +1,26 @@
 const fs = require('fs');
 
 function getAllProducts() {
-  let fileContent = fs.readFileSync('products.json', 'utf8');
+  const fileContent = fs.readFileSync('products.json', 'utf8');
   return JSON.parse(fileContent);
 }
 
 function findProductByID(id) {
-  let fileContent = fs.readFileSync('products.json', 'utf8');
-  let products = JSON.parse(fileContent);
-  for (let i = 0; i <= products.length; i++) {
-    if (products[i].id === id) {
-      return products[i];
-    } else {
-      return false;
-    }
+  const fileContent = fs.readFileSync('products.json', 'utf8');
+  const products = JSON.parse(fileContent);
+  const product = products.find(function(product){
+    return product.id === id;
+  });
+
+  if(product === undefined){
+    return false;
   }
+
+  return product;
 }
 
 function addProduct(product) {
-  let fileContent = fs.readFileSync('products.json', 'utf8');
+  const fileContent = fs.readFileSync('products.json', 'utf8');
   let products = JSON.parse(fileContent);
   products.push(product);
   fs.writeFileSync('products.json', JSON.stringify(products));
@@ -26,9 +28,9 @@ function addProduct(product) {
 }
 
 function updateProduct(id, product) {
-  let fileContent = fs.readFileSync('products.json', 'utf8');
+  const fileContent = fs.readFileSync('products.json', 'utf8');
   let products = JSON.parse(fileContent);
-  for (let i = 0; i <= products.length; i++) {
+  for (let i = 0; i < products.length; i++) {
     if (products[i].id === id) {
       products[i] = product;
       fs.writeFileSync('products.json', JSON.stringify(products));
@@ -38,15 +40,19 @@ function updateProduct(id, product) {
 }
 
 function deleteProduct(id) {
-  let fileContent = fs.readFileSync('products.json', 'utf8');
+  const fileContent = fs.readFileSync('products.json', 'utf8');
   let products = JSON.parse(fileContent);
-  for (let i = 0; i <= products.length; i++) {
-    if (products[i].id === id) {
-      products.splice(i, 1);
-      fs.writeFileSync('products.json', JSON.stringify(products));
-      return true;
-    }
+  const index = products.findIndex(function(product){
+    return product.id === id;
+  });
+
+  if(index === -1){
+    return false;
   }
+  products.splice(index, 1);
+  fs.writeFileSync('products.json', JSON.stringify(products));
+  return true;
+
 }
 
 /*console.log(
@@ -67,8 +73,7 @@ function deleteProduct(id) {
   })
 );*/
 
-console.log(deleteProduct(3));
 
 console.log(getAllProducts());
 
-console.log(findProductByID(2));
+
