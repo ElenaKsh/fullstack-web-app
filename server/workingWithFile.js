@@ -55,6 +55,12 @@ function deleteProduct(id) {
 
 }
 
+exports.getAllProducts = getAllProducts;
+exports.findProductByID = findProductByID;
+exports.addProduct = addProduct;
+exports.updateProduct = updateProduct;
+exports.deleteProduct = deleteProduct;
+
 /*console.log(
   addProduct({
     id: 3,
