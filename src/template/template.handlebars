@@ -1,0 +1,72 @@
+<table class="table-products">
+  <tr>
+    <th class="table-products__title">Название</th>
+    <th class="table-products__title">Количество</th>
+    <th class="table-products__title">Цена за 1</th>
+    <th class="table-products__title">Цена (total)</th>
+  </tr>
+  {{#each productElements}}
+  <tr>
+    <td class="table-products__element table-products__element--name">{{product_name}}</td>
+    <td class="table-products__element">
+      <input
+        type="text"
+        value="{{product_amount}}"
+        readonly
+        class="table-products__element--count"
+        id="count-{{id}}"
+      />
+    </td>
+    <td class="table-products__element">
+      <input
+        type="text"
+        value="{{product_price}}"
+        readonly
+        class="table-products__element--priceForOne"
+        id="priceForOne-{{id}}"
+      />
+    </td>
+    <td class="table-products__element">{{priceTotal}}</td>
+    <td><button class="button-delete" id='product-delete-{{id}}'>Delete</button></td>
+    <td><button class="button-edit" id='product-edit-{{id}}'>Edit</button></td>
+  </tr>
+  {{/each}}
+  <tr>
+    <td colspan="4" class="table-products__element--allPrice">Общая стоимость: {{allPrice}}</td>
+  </tr>
+</table>
+
+<form class="form-add-product">
+  <table class="add-product">
+    <tr>
+      <td>
+        <input class="add-product__name" type="text" name="name" required>
+      </td>
+      <td>
+        <input class="add-product__amount" type="text" name="amount" required>
+      </td>
+      <td>
+        <input class="add-product__price" type="text" name="price" required>
+      </td>
+      <td><button>Add</button></td>
+    </tr>
+  </table>
+</form>
+
+<form class="form-edit-product">
+  <table class="edit-product">
+    <tr>
+      <td>
+        <input class="edit-product__name" type="text" name="name" required>
+      </td>
+      <td>
+        <input class="edit-product__amount" type="text" name="amount" required>
+      </td>
+      <td>
+        <input class="edit-product__price" type="text" name="price" required>
+        <input type="hidden" class="edit-product__id" name="id">
+      </td>
+      <td><button>Edit</button></td>
+    </tr>
+  </table>
+</form>

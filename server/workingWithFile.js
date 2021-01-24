@@ -1,12 +1,12 @@
 const fs = require('fs');
 
 function getAllProducts() {
-  const fileContent = fs.readFileSync('products.json', 'utf8');
+  const fileContent = fs.readFileSync('server/products.json', 'utf8');
   return JSON.parse(fileContent);
 }
 
 function findProductByID(id) {
-  const fileContent = fs.readFileSync('products.json', 'utf8');
+  const fileContent = fs.readFileSync('server/products.json', 'utf8');
   const products = JSON.parse(fileContent);
   const product = products.find(function(product){
     return product.id === id;
@@ -20,27 +20,27 @@ function findProductByID(id) {
 }
 
 function addProduct(product) {
-  const fileContent = fs.readFileSync('products.json', 'utf8');
+  const fileContent = fs.readFileSync('server/products.json', 'utf8');
   let products = JSON.parse(fileContent);
   products.push(product);
-  fs.writeFileSync('products.json', JSON.stringify(products));
+  fs.writeFileSync('server/products.json', JSON.stringify(products));
   return true;
 }
 
 function updateProduct(id, product) {
-  const fileContent = fs.readFileSync('products.json', 'utf8');
+  const fileContent = fs.readFileSync('server/products.json', 'utf8');
   let products = JSON.parse(fileContent);
   for (let i = 0; i < products.length; i++) {
     if (products[i].id === id) {
       products[i] = product;
-      fs.writeFileSync('products.json', JSON.stringify(products));
+      fs.writeFileSync('server/products.json', JSON.stringify(products));
       return true;
     }
   }
 }
 
 function deleteProduct(id) {
-  const fileContent = fs.readFileSync('products.json', 'utf8');
+  const fileContent = fs.readFileSync('server/products.json', 'utf8');
   let products = JSON.parse(fileContent);
   const index = products.findIndex(function(product){
     return product.id === id;
@@ -50,7 +50,7 @@ function deleteProduct(id) {
     return false;
   }
   products.splice(index, 1);
-  fs.writeFileSync('products.json', JSON.stringify(products));
+  fs.writeFileSync('server/products.json', JSON.stringify(products));
   return true;
 
 }
@@ -79,7 +79,5 @@ exports.deleteProduct = deleteProduct;
   })
 );*/
 
-
-console.log(getAllProducts());
 
 

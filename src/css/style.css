@@ -1,0 +1,75 @@
+body {
+  margin-top: 50px;
+  width: 1440px;
+}
+
+.table-products {
+  margin: 0 auto;
+}
+
+.table-products__title {
+  margin: 0 auto;
+  border: 2px solid #384650;
+  background-color: #839098;
+}
+
+.table-products__element {
+  text-align: center;
+  border: 2px solid #9a8c7a;
+  background-color: #bcb0a1;
+}
+
+.table-products__element--count {
+  text-align: center;
+  background-color: #bcb0a1;
+  border: none;
+}
+
+.table-products__element--priceForOne {
+  text-align: center;
+  background-color: #bcb0a1;
+  border: none;
+}
+
+.table-products__element--allPrice {
+  text-align: right;
+  font-weight: bold;
+  border: 2px solid #384650;
+  background-color: #839098;
+}
+
+.add-product {
+  padding: 0 416 0 416;
+}
+
+.add-product__name {
+  width: 75.2px;
+}
+
+.add-product__amount {
+  width: 160.8px;
+}
+
+.add-product__price {
+  width: 160.8px;
+}
+
+.form-edit-product {
+  padding: 0 416 0 416;
+}
+
+.edit-product {
+  display: none;
+}
+
+.edit-product__name {
+  width: 75.2px;
+}
+
+.edit-product__amount {
+  width: 160.8px;
+}
+
+.edit-product__price {
+  width: 160.8px;
+}

@@ -1,1 +1,1 @@
-[{"id":1,"product_name":"apple","product_price":10,"product_amount":1}]
+[{"id":1,"product_name":"apple","product_amount":"3","product_price":"10"},{"id":2,"product_name":"mango","product_amount":"2","product_price":"8"},{"id":3,"product_name":"orange","product_amount":"2","product_price":"10"}]
