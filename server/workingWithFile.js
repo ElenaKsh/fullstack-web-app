@@ -8,11 +8,11 @@ function getAllProducts() {
 function findProductByID(id) {
   const fileContent = fs.readFileSync('server/products.json', 'utf8');
   const products = JSON.parse(fileContent);
-  const product = products.find(function(product){
+  const product = products.find(function (product) {
     return product.id === id;
   });
 
-  if(product === undefined){
+  if (product === undefined) {
     return false;
   }
 
@@ -42,17 +42,16 @@ function updateProduct(id, product) {
 function deleteProduct(id) {
   const fileContent = fs.readFileSync('server/products.json', 'utf8');
   let products = JSON.parse(fileContent);
-  const index = products.findIndex(function(product){
+  const index = products.findIndex(function (product) {
     return product.id === id;
   });
 
-  if(index === -1){
+  if (index === -1) {
     return false;
   }
   products.splice(index, 1);
   fs.writeFileSync('server/products.json', JSON.stringify(products));
   return true;
-
 }
 
 exports.getAllProducts = getAllProducts;
@@ -78,6 +77,3 @@ exports.deleteProduct = deleteProduct;
     product_amount: 1,
   })
 );*/
-
-
-
